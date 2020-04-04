@@ -1,11 +1,15 @@
 cmake_minimum_required(VERSION 3.16)
 
 # 项目名称
-project(learn-cmake)
+set(PROJECT_NAME "all")
+project(${PROJECT_NAME})
 
-add_executable(main main.cpp)
+# ---------- 应用程序 ----------
+add_subdirectory(HelloWorld)
 
-install(TARGETS main)
+# 安装
+install(TARGETS HelloWorld)
 
+# 测试
 enable_testing()
 add_test(NAME main COMMAND main)
