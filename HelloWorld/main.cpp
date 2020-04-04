@@ -5,6 +5,6 @@
 
 int main()
 {
-  std::cout << "Hello world 1+1=" << add(1, 1) << std::endl;
+  std::cout << "Hello world 4 sqrt is " << mysqrt(4) << std::endl;
   getchar();
 }

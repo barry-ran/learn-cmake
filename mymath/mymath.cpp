@@ -1,6 +1,7 @@
 #include <iostream>
+#include <math.h>
 
-int add(int a, int b) {
-    std::cout << "call add" << std::endl;
-    return a + b;
+double mysqrt(double input) {
+    std::cout << "call mysqrt" << std::endl;
+    return sqrt(input);
 }
