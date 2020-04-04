@@ -12,4 +12,4 @@ install(TARGETS HelloWorld)
 
 # 测试
 enable_testing()
-add_test(NAME main COMMAND main)
+add_test(NAME HelloWorld COMMAND HelloWorld)
