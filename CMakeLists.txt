@@ -7,7 +7,7 @@ set(PROJECT_NAME "all")
 project(${PROJECT_NAME})
 
 # 添加头文件路径
-include_directories("${PROJECT_SOURCE_DIR}/math")
+include_directories("${PROJECT_SOURCE_DIR}/mymath")
 
 # 添加子项目
 add_subdirectory(mymath)
