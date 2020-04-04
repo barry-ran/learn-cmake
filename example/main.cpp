@@ -10,7 +10,7 @@
 
 int main()
 {
-    std::cout << "Hello world 4 sqrt is "
+    std::cout << "example: 4 sqrt is "
 #ifdef USE_MYMATH
     << mysqrt(4) 
 #else

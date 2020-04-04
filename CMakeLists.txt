@@ -10,23 +10,23 @@ option(USE_MYMATH "Use mymath provided math implementation" ON)
 project(${PROJECT_NAME})
 
 # 添加子项目
-add_subdirectory(helloworld)
+add_subdirectory(example)
 add_subdirectory(version)
 
 # mymath作为可选项
 if(USE_MYMATH)
     add_subdirectory(mymath)
-    # 指定helloworld添加头文件路径
-    target_include_directories(helloworld PUBLIC "${PROJECT_SOURCE_DIR}/mymath")
-    # 指定helloworld链接mymath
-    target_link_libraries(helloworld mymath)
+    # 指定example添加头文件路径
+    target_include_directories(example PUBLIC "${PROJECT_SOURCE_DIR}/mymath")
+    # 指定example链接mymath
+    target_link_libraries(example mymath)
 endif()
 
 # 安装
-install(TARGETS helloworld)
+install(TARGETS example)
 install(TARGETS version)
 
 # 测试
 enable_testing()
-add_test(NAME helloworld COMMAND helloworld)
+add_test(NAME example COMMAND example)
 add_test(NAME version COMMAND version)
