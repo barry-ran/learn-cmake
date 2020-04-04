@@ -6,5 +6,13 @@ set(PROJECT_NAME "helloworld")
 # 声明项目
 project(${PROJECT_NAME})
 
+configure_file (
+    "${PROJECT_SOURCE_DIR}/Config.h.in"
+    "${PROJECT_BINARY_DIR}/Config.h"
+)
+
+# Config.h自动生成在编译目录，所以需要将编译目录增加到头文件包含路径
+include_directories("${PROJECT_BINARY_DIR}")
+
 # 定义可执行程序
 add_executable(${PROJECT_NAME} main.cpp)

@@ -3,18 +3,24 @@ cmake_minimum_required(VERSION 3.16)
 # 项目名称
 set(PROJECT_NAME "all")
 
+# 配置mymath
+option(USE_MYMATH "Use mymath provided math implementation" ON)
+
 # 声明项目
 project(${PROJECT_NAME})
 
 # 添加子项目
-add_subdirectory(mymath)
 add_subdirectory(helloworld)
 add_subdirectory(version)
 
-# 指定helloworld添加头文件路径
-target_include_directories(helloworld PUBLIC "${PROJECT_SOURCE_DIR}/mymath")
-# 指定helloworld链接mymath
-target_link_libraries(helloworld mymath)
+# mymath作为可选项
+if(USE_MYMATH)
+    add_subdirectory(mymath)
+    # 指定helloworld添加头文件路径
+    target_include_directories(helloworld PUBLIC "${PROJECT_SOURCE_DIR}/mymath")
+    # 指定helloworld链接mymath
+    target_link_libraries(helloworld mymath)
+endif()
 
 # 安装
 install(TARGETS helloworld)
