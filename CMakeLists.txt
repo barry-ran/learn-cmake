@@ -10,12 +10,12 @@ project(${PROJECT_NAME})
 include_directories("${PROJECT_SOURCE_DIR}/math")
 
 # 添加子项目
-add_subdirectory(math)
+add_subdirectory(mymath)
 add_subdirectory(helloworld)
 add_subdirectory(version)
 
 # helloworld 链接math
-target_link_libraries(helloworld math)
+target_link_libraries(helloworld mymath)
 
 # 安装
 install(TARGETS helloworld)
