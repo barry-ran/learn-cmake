@@ -11,7 +11,7 @@ project(${PROJECT_NAME})
 
 # 添加子项目
 add_subdirectory(example)
-add_subdirectory(version)
+add_subdirectory(versionexample)
 
 # mymath作为可选项
 if(USE_MYMATH)
@@ -24,9 +24,9 @@ endif()
 
 # 安装
 install(TARGETS example)
-install(TARGETS version)
+install(TARGETS versionexample)
 
 # 测试
 enable_testing()
 add_test(NAME example COMMAND example)
-add_test(NAME version COMMAND version)
+add_test(NAME versionexample COMMAND versionexample)
