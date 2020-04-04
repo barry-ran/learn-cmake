@@ -7,4 +7,4 @@ set(PROJECT_NAME "math")
 project(${PROJECT_NAME})
 
 # 定义静态库
-add_library(math math.cpp)
+add_library(math STATIC math.cpp)
