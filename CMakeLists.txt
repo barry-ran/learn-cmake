@@ -23,9 +23,12 @@ if(USE_MYMATH)
     target_link_libraries(example mymath)
 endif()
 
-# 安装
-install(TARGETS example)
-install(TARGETS versionexample)
+# 执行install命令时要安装的文件
+install(TARGETS example DESTINATION bin)
+install(FILES "${PROJECT_BINARY_DIR}/Config.h"
+        DESTINATION include)
+
+install(TARGETS versionexample DESTINATION bin)
 
 # 测试
 enable_testing()

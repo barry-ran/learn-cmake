@@ -13,3 +13,8 @@ add_library(${PROJECT_NAME} STATIC mymath.cpp)
 # INTERFACE是指消费者需要的东西，而生产者则不需要
 target_include_directories(${PROJECT_NAME}
           INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
+
+# 安装当前库到lib目录
+install(TARGETS ${PROJECT_NAME} DESTINATION lib)
+# 安装头文件到include目录
+install(FILES mymath.h DESTINATION include)
