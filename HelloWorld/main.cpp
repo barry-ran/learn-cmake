@@ -1,12 +1,12 @@
 #include <iostream>
 #include <stdio.h>
 
+#include "Config.h"
 #ifdef USE_MYMATH
 #include "mymath.h"
 #else
 #include <math.h>
 #endif
-#include "Config.h"
 
 int main()
 {
