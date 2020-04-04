@@ -6,19 +6,20 @@ set(PROJECT_NAME "all")
 # 声明项目
 project(${PROJECT_NAME})
 
+# 添加头文件路径
+include_directories("${PROJECT_SOURCE_DIR}/math")
+
 # 添加子项目
+add_subdirectory(math)
 add_subdirectory(helloworld)
 add_subdirectory(version)
+
+# helloworld 链接math
+target_link_libraries(helloworld math)
 
 # 安装
 install(TARGETS helloworld)
 install(TARGETS version)
-add_subdirectory(math)
-
-# 添加头文件路径
-include_directories("${PROJECT_SOURCE_DIR}/math")
-# helloworld 链接math
-target_link_libraries(helloworld math)
 
 # 测试
 enable_testing()
