@@ -7,14 +7,20 @@ set(PROJECT_NAME "all")
 project(${PROJECT_NAME})
 
 # 添加子项目
-add_subdirectory(HelloWorld)
-add_subdirectory(Version)
+add_subdirectory(helloworld)
+add_subdirectory(version)
 
 # 安装
-install(TARGETS HelloWorld)
-install(TARGETS Version)
+install(TARGETS helloworld)
+install(TARGETS version)
+add_subdirectory(math)
+
+# 添加头文件路径
+include_directories("${PROJECT_SOURCE_DIR}/math")
+# helloworld 链接math
+target_link_libraries(helloworld math)
 
 # 测试
 enable_testing()
-add_test(NAME HelloWorld COMMAND HelloWorld)
-add_test(NAME Version COMMAND Version)
+add_test(NAME helloworld COMMAND helloworld)
+add_test(NAME version COMMAND version)
