@@ -6,6 +6,18 @@ set(PROJECT_NAME "mymath")
 # 声明项目
 project(${PROJECT_NAME})
 
+# 检查log/exp函数是否可用
+include(CheckSymbolExists)
+set(CMAKE_REQUIRED_LIBRARIES "m")
+check_symbol_exists(log "math.h" HAVE_LOG)
+check_symbol_exists(exp "math.h" HAVE_EXP)
+
+# 如果存在则添加相应的宏定义
+if(HAVE_LOG AND HAVE_EXP)
+    target_compile_definitions(${PROJECT_NAME}
+                             PRIVATE "HAVE_LOG" "HAVE_EXP")
+endif()
+
 # 定义静态库
 add_library(${PROJECT_NAME} STATIC mymath.cpp)
 
