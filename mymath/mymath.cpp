@@ -9,6 +9,7 @@ double mysqrt(double input) {
             << " using log and exp" << std::endl;
     return result;
 #else
-    return sqrt(input);
+    //return sqrt(input);
+    return input;
 #endif
 }

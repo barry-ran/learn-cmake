@@ -6,6 +6,9 @@ set(PROJECT_NAME "mymath")
 # 声明项目
 project(${PROJECT_NAME})
 
+# 定义静态库
+add_library(${PROJECT_NAME} STATIC mymath.cpp)
+
 # 检查log/exp函数是否可用
 include(CheckSymbolExists)
 set(CMAKE_REQUIRED_LIBRARIES "m")
@@ -15,11 +18,8 @@ check_symbol_exists(exp "math.h" HAVE_EXP)
 # 如果存在则添加相应的宏定义
 if(HAVE_LOG AND HAVE_EXP)
     target_compile_definitions(${PROJECT_NAME}
-                             PRIVATE "HAVE_LOG" "HAVE_EXP")
+        PRIVATE "HAVE_LOG" "HAVE_EXP")
 endif()
-
-# 定义静态库
-add_library(${PROJECT_NAME} STATIC mymath.cpp)
 
 # 指定要求依赖当前库的库都添加此包含目录
 # INTERFACE是指消费者需要的东西，而生产者则不需要
