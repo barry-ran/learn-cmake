@@ -16,3 +16,8 @@ include_directories("${PROJECT_BINARY_DIR}")
 
 # 定义可执行程序
 add_executable(${PROJECT_NAME} main.cpp)
+
+# 执行install命令时要安装的文件
+install(TARGETS ${PROJECT_NAME} DESTINATION bin)
+install(FILES "${PROJECT_BINARY_DIR}/Config.h"
+        DESTINATION include)

@@ -12,7 +12,7 @@ project(${PROJECT_NAME})
 # 添加子项目
 # https://cmake.org/cmake/help/latest/guide/tutorial/index.html#a-basic-starting-point-step-1
 add_subdirectory(example)
-add_subdirectory(versionexample)
+add_subdirectory(version)
 
 # mymath作为可选项
 if(USE_MYMATH)
@@ -23,14 +23,7 @@ if(USE_MYMATH)
     target_link_libraries(example mymath)
 endif()
 
-# 执行install命令时要安装的文件
-install(TARGETS example DESTINATION bin)
-install(FILES "${PROJECT_BINARY_DIR}/Config.h"
-        DESTINATION include)
-
-install(TARGETS versionexample DESTINATION bin)
-
 # 测试
 enable_testing()
 add_test(NAME example COMMAND example)
-add_test(NAME versionexample COMMAND versionexample)
+add_test(NAME version COMMAND version)

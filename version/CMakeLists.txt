@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 
 # 项目名称
-set(PROJECT_NAME "versionexample")
+set(PROJECT_NAME "version")
 
 # 声明项目
 project(${PROJECT_NAME})
@@ -32,3 +32,6 @@ include_directories("${PROJECT_BINARY_DIR}")
 
 # 定义可执行程序
 add_executable(${PROJECT_NAME} main.cpp)
+
+# 执行install命令时要安装的文件
+install(TARGETS ${PROJECT_NAME} DESTINATION bin)
