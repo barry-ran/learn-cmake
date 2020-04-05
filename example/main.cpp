@@ -7,16 +7,22 @@
 #else
 #include <math.h>
 #endif
+#include <string>
 
-int main()
+int main(int argc, char *argv[])
 {
-    std::cout << "example: 4 sqrt is "
+    if (argc < 2) {
+        std::cout << "Usage: " << argv[0] << " number" << std::endl;
+        return 1;
+    }
+    const double inputValue = std::stod(argv[1]);
+
 #ifdef USE_MYMATH
-    << mysqrt(4) 
+  const double outputValue = mysqrt(inputValue);
 #else
-    << sqrt(4) 
+  const double outputValue = sqrt(inputValue);
 #endif
-    << std::endl;
+    std::cout << inputValue << " is " << outputValue << std::endl;
 
     getchar();
 }

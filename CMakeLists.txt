@@ -23,7 +23,33 @@ if(USE_MYMATH)
     target_link_libraries(example mymath)
 endif()
 
-# 测试
+# 启用测试
 enable_testing()
-add_test(NAME example COMMAND example)
+
+# 测试程序运行正常
+add_test(NAME Runs COMMAND example 25)
 add_test(NAME version COMMAND version)
+
+# 测试usage消息是否正常
+add_test(NAME Usage COMMAND example)
+# 判断测试用例Usage的输出中是否包含"Usage:.*number"
+set_tests_properties(Usage
+    PROPERTIES PASS_REGULAR_EXPRESSION "Usage:.*number"
+)
+
+# 定义一个简单的测试函数测试输出是否正常
+function(do_test target arg result)
+  add_test(NAME Comp${arg} COMMAND ${target} ${arg})
+  set_tests_properties(Comp${arg}
+    PROPERTIES PASS_REGULAR_EXPRESSION ${result}
+    )
+endfunction(do_test)
+
+# 测试example的一些case
+do_test(example 4 "4 is 2")
+do_test(example 9 "9 is 3")
+do_test(example 5 "5 is 2.236")
+do_test(example 7 "7 is 2.645")
+do_test(example 25 "25 is 5")
+do_test(example -25 "-25 is [-nan|nan|0]")
+do_test(example 0.0001 "0.0001 is 0.01")
