@@ -7,7 +7,7 @@
 #    define DECLSPEC __declspec(dllimport)
 #  endif
 #else // non windows
-#  define DECLSPECint
+#  define DECLSPEC
 #endif
 
 int DECLSPEC myadd(int add1, int add2);
