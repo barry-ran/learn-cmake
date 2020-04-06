@@ -9,6 +9,8 @@
 #endif
 #include <string>
 
+#include "myshared.h"
+
 int main(int argc, char *argv[])
 {
     if (argc < 2) {
@@ -16,6 +18,11 @@ int main(int argc, char *argv[])
         return 1;
     }
     const double inputValue = std::stod(argv[1]);
+
+    int re = myadd(1, 1);
+    if (2 != re) {
+      return 1;
+    }
 
 #ifdef USE_MYMATH
   const double outputValue = mysqrt(inputValue);

@@ -3,6 +3,9 @@ cmake_minimum_required(VERSION 3.16)
 # 项目名称
 set(PROJECT_NAME "all")
 
+# https://cmake.org/cmake/help/latest/guide/tutorial/index.html#a-basic-starting-point-step-1
+# https://github.com/Kitware/CMake/tree/master/Help/guide/tutorial/Complete
+
 # 配置mymath
 option(USE_MYMATH "Use mymath provided math implementation" ON)
 
@@ -10,9 +13,11 @@ option(USE_MYMATH "Use mymath provided math implementation" ON)
 project(${PROJECT_NAME})
 
 # 添加子项目
-# https://cmake.org/cmake/help/latest/guide/tutorial/index.html#a-basic-starting-point-step-1
 add_subdirectory(example)
 add_subdirectory(version)
+add_subdirectory(myshared)
+
+target_link_libraries(example myshared)
 
 # mymath作为可选项
 if(USE_MYMATH)
