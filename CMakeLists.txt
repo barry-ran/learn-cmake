@@ -12,6 +12,12 @@ option(USE_MYMATH "Use mymath provided math implementation" ON)
 # 声明项目
 project(${PROJECT_NAME})
 
+# 设置可执行程序、静态库、动态库都生成在同一个目录
+# 以便在windows上不需要修改运行可执行文件的路径（windows上exe要和依赖的dll在同一目录）
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
+
 # 添加子项目
 add_subdirectory(example)
 add_subdirectory(version)
