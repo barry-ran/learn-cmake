@@ -18,14 +18,8 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/${CMAKE_BUILD_TYPE}")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/${CMAKE_BUILD_TYPE}")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/${CMAKE_BUILD_TYPE}")
 
-# 添加子项目
-add_subdirectory(example)
-add_subdirectory(version)
-add_subdirectory(myshared)
-
-target_link_libraries(example myshared)
-
-# CMAKE_CXX_FLAGS为全局变量，当前目录以及subdirectory下所有的编译标志都为该标志
+# CMAKE_CXX_FLAGS为全局变量，add_subdirectory之前修改了CMAKE_CXX_FLAGS的话，
+# 当前目录以及所有的subdirectory编译标志都为该标志
 # 如果想控制作用域可以使用target_compile_definitions设置编译选项
 if(MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4996")
@@ -33,6 +27,13 @@ endif()
 
 # 打印CMAKE_CXX_FLAGS
 message(STATUS "all - CMAKE_CXX_FLAGS: ${CMAKE_CXX_FLAGS}")
+
+# 添加子项目
+add_subdirectory(example)
+add_subdirectory(version)
+add_subdirectory(myshared)
+
+target_link_libraries(example myshared)
 
 # mymath作为可选项
 if(USE_MYMATH)
