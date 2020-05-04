@@ -25,6 +25,12 @@ add_subdirectory(myshared)
 
 target_link_libraries(example myshared)
 
+# CMAKE_CXX_FLAGS为全局变量，当前目录以及subdirectory下所有的编译标志都为该标志
+# 如果想控制作用域可以使用target_compile_definitions设置编译选项
+if(MSVC)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4996")
+endif()
+
 # 打印CMAKE_CXX_FLAGS
 message(STATUS "all - CMAKE_CXX_FLAGS: ${CMAKE_CXX_FLAGS}")
 
