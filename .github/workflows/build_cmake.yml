@@ -194,9 +194,6 @@ jobs:
         execute_process(COMMAND ccache -p)
         execute_process(COMMAND ccache -z)
 
-        # 删除build目录
-        execute_process(COMMAND rm -rf build)
-
         # 执行编译
         execute_process(
           COMMAND ${{ steps.cmake_and_ninja.outputs.cmake_dir }}/cmake --build build
