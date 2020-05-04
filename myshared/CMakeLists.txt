@@ -20,7 +20,7 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE "EXPORTING_MYSHARED")
 
 # 安装当前库动态库到bin目录，静态库到lib目录
 install(TARGETS ${PROJECT_NAME} 
-    RUNTIME DESTINATION bin 
+    RUNTIME DESTINATION bin
     ARCHIVE DESTINATION lib
 )
 # 安装头文件到include目录

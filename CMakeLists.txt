@@ -26,7 +26,7 @@ add_subdirectory(myshared)
 target_link_libraries(example myshared)
 
 # 打印CMAKE_CXX_FLAGS
-message(STATUS "CMAKE_CXX_FLAGS: ${CMAKE_CXX_FLAGS}")
+message(STATUS "all - CMAKE_CXX_FLAGS: ${CMAKE_CXX_FLAGS}")
 
 # mymath作为可选项
 if(USE_MYMATH)
