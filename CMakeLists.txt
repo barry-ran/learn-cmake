@@ -26,6 +26,15 @@ if(MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4996")
 endif()
 
+include (TestBigEndian)
+TEST_BIG_ENDIAN(IS_BIG_ENDIAN)
+if(IS_BIG_ENDIAN)
+    message(STATUS "--- big endian")
+else()
+    message(STATUS "--- little endian")
+endif()
+
+
 # 打印CMAKE_CXX_FLAGS
 message(STATUS "all 1- CMAKE_CXX_FLAGS: ${CMAKE_CXX_FLAGS}")
 
