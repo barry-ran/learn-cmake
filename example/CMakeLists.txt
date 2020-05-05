@@ -18,7 +18,13 @@ include_directories("${PROJECT_BINARY_DIR}")
 add_executable(${PROJECT_NAME} main.cpp)
 
 # 打印CMAKE_CXX_FLAGS
-message(STATUS "example - CMAKE_CXX_FLAGS: ${CMAKE_CXX_FLAGS}")
+message(STATUS "example 1- CMAKE_CXX_FLAGS: ${CMAKE_CXX_FLAGS}")
+# 这里修改不会影响父级的CMAKE_CXX_FLAGS
+if(MSVC)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4997")
+endif()
+
+message(STATUS "example 2- CMAKE_CXX_FLAGS: ${CMAKE_CXX_FLAGS}")
 
 # 执行install命令时要安装的文件
 # 为执行install时指定的--prefix目录
