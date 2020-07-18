@@ -6,6 +6,12 @@ set(PROJECT_NAME "mystaticd")
 # 声明项目
 project(${PROJECT_NAME})
 
+# GNU编译器 静态库想让动态库依赖的话，需要增加-fPIC编译选项
+if(UNIX)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC")
+endif()
+
 # 定义动态库
 add_library(${PROJECT_NAME} STATIC mystaticd.cpp)
 
