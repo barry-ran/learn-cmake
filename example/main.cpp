@@ -20,9 +20,11 @@ int main(int argc, char *argv[])
     }
     const double inputValue = std::stod(argv[1]);
 
+    std::cout << "+++++++++++++++++example main+++++++++++++++++" << std::endl;
     myadd_static(1, 1);
 
     int re = myadd(1, 1);
+    std::cout << "-----------------example main-----------------" << std::endl;
     if (2 != re) {
       return 1;
     }
