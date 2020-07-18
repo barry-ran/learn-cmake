@@ -203,6 +203,11 @@ jobs:
           message(FATAL_ERROR "Bad exit status")
         endif()
 
+        # 执行example
+        execute_process(
+          COMMAND build/Release/example 5
+        )
+
         execute_process(COMMAND ccache -s)
 
     - name: Run tests
