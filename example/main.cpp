@@ -10,6 +10,7 @@
 #include <string>
 
 #include "myshared.h"
+#include "mystaticd.h"
 
 int main(int argc, char *argv[])
 {
@@ -18,6 +19,8 @@ int main(int argc, char *argv[])
         return 1;
     }
     const double inputValue = std::stod(argv[1]);
+
+    myadd_static(1, 1);
 
     int re = myadd(1, 1);
     if (2 != re) {
