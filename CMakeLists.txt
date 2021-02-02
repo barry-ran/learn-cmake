@@ -25,6 +25,8 @@ else()
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/${CMAKE_BUILD_TYPE}")
 endif()
 
+message(STATUS "CMAKE_BUILD_TYPE:${CMAKE_BUILD_TYPE}")
+
 # CMAKE_CXX_FLAGS为全局变量，add_subdirectory之前修改了CMAKE_CXX_FLAGS的话，
 # 当前目录以及所有的subdirectory编译标志都为该标志
 # 如果想控制作用域可以使用target_compile_definitions设置编译选项或者直接在subdirectory中设置编译选项
