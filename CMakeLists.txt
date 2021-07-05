@@ -53,6 +53,8 @@ add_subdirectory(version)
 add_subdirectory(myshared)
 add_subdirectory(myshared2)
 add_subdirectory(mystaticd)
+add_subdirectory(ExternalProject-vlc)
+
 
 # 如果subdirectory修改了CMAKE_CXX_FLAGS选项，这里不会受到影响
 message(STATUS "all 2- CMAKE_CXX_FLAGS: ${CMAKE_CXX_FLAGS}")
